@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Düğün Teklifi | Hanedan Park</title>
+<meta name="description" content="3 kısa soruyu yanıtlayın, Hanedan Park ekibi tarihinize ve davetli sayınıza göre size özel düğün teklifi hazırlasın.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- GTM (sitedeki container ile aynı; site içine alınınca bu blok kaldırılır) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCFJTWCL');</script>
+<style>
+:root{
+  --cream:#F6F2E9; --paper:#fffdf8; --gold:#e3cfa4; --gold2:#c9a96a; --antique:#7a5c2e; --ink:#242520; --muted:#6b6a62; --line:#e6dcc6; --err:#a33a2a;
+  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.8,.25,1);
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--ink);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font:inherit}
+
+/* ---------- arka plan (adım görseli) ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+.bg div{position:absolute;inset:-4%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease;animation:drift 24s ease-in-out infinite alternate}
+.bg div.on{opacity:1}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 20%,rgba(36,37,32,.25),rgba(36,37,32,.82))}
+@keyframes drift{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.1) translate(-1.5%,-1%)}}
+
+/* ---------- uçuşan ışıltılar ---------- */
+.dust{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.dust i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px 2px rgba(227,207,164,.7);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-110vh) translateX(30px);opacity:0}}
+
+/* ---------- ana kart ---------- */
+.wrap{position:relative;z-index:2;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px 28px}
+.logo{height:46px;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4));animation:fadeDown .8s var(--ease) both}
+.card{width:100%;max-width:560px;background:rgba(246,242,233,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);padding:22px 20px 24px;position:relative;animation:cardIn .7s var(--ease) both}
+@media(min-width:640px){.card{padding:30px 34px 32px}}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+
+/* peri + balon */
+.guide{display:flex;align-items:flex-end;gap:10px;margin:-6px 0 18px}
+.guide .fairy{width:64px;height:76px;flex:none}
+.bubble{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-size:14px;line-height:1.45;color:var(--ink);box-shadow:0 6px 18px rgba(122,92,46,.08);min-height:42px}
+.bubble.pop{animation:pop .45s var(--ease)}
+@keyframes pop{0%{opacity:0;transform:scale(.85) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* peri svg animasyonları */
+.fairy .float{animation:float 3.2s ease-in-out infinite;transform-origin:center}
+.fairy .wingL{animation:flapL .35s ease-in-out infinite alternate;transform-origin:52px 50px}
+.fairy .wingR{animation:flapR .35s ease-in-out infinite alternate;transform-origin:68px 50px}
+.fairy .star{animation:twinkle 1.4s ease-in-out infinite;transform-origin:101px 34px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes flapL{from{transform:rotate(6deg) scaleX(1)}to{transform:rotate(-10deg) scaleX(.82)}}
+@keyframes flapR{from{transform:rotate(-6deg) scaleX(1)}to{transform:rotate(10deg) scaleX(.82)}}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(1.35) rotate(25deg);opacity:.75}}
+
+/* ilerleme */
+.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.top[hidden]{display:none}
+.back{flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:transparent;cursor:pointer;color:var(--ink);font-size:18px;line-height:1;visibility:hidden}
+.back.show{visibility:visible}
+.bar{flex:1;height:4px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),var(--antique));transition:width .6s var(--ease)}
+.count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* adımlar */
+.step{display:none}
+.step.on{display:block}
+.step.on>*{animation:up .55s var(--ease) both}
+.step.on>*:nth-child(2){animation-delay:.06s}.step.on>*:nth-child(3){animation-delay:.12s}.step.on>*:nth-child(4){animation-delay:.18s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.step h1,.step h2{font-family:var(--serif);font-weight:600;font-size:clamp(27px,6vw,34px);line-height:1.12;margin-bottom:6px}
+.step h1 em{font-style:italic;color:var(--antique)}
+.hint{color:var(--muted);font-size:15px;margin-bottom:18px}
+
+.opts{display:grid;gap:10px}
+.opt{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;width:100%;text-align:left;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:10px 14px 10px 10px;cursor:pointer;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;opacity:0;animation:up .5s var(--ease) both}
+.opt:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 20px rgba(122,92,46,.12)}
+.opt:active{transform:scale(.98)}
+.opt .th{flex:none;width:52px;height:52px;border-radius:12px;background-size:cover;background-position:center;transition:transform .4s var(--ease)}
+.opt:hover .th{transform:scale(1.08)}
+.opt b{display:block;font-weight:600;font-size:16px}
+.opt small{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.opt .tick{margin-left:auto;flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);transition:all .25s var(--ease)}
+.opt.sel{border-color:var(--antique);background:#fbf6ea}
+.opt.sel .tick{border:7px solid var(--antique)}
+.opt .ripple{position:absolute;border-radius:50%;background:rgba(201,169,106,.35);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+.field{margin-top:12px}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.field label span{font-weight:400;color:var(--muted)}
+.field input{width:100%;font:16px var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s}
+.field input:focus{outline:none;border-color:var(--antique);box-shadow:0 0 0 4px rgba(201,169,106,.2)}
+.field input[aria-invalid=true]{border-color:var(--err)}
+.err{color:var(--err);font-size:13px;margin-top:5px;min-height:1em}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin-top:14px;line-height:1.5}
+.consent input{margin-top:2px;width:18px;height:18px;accent-color:var(--antique);flex:none}
+.consent a{color:var(--antique)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;font:600 16px var(--sans);border-radius:999px;padding:16px 26px;cursor:pointer;border:0;background:var(--ink);color:#fff;margin-top:20px;position:relative;overflow:hidden;text-decoration:none}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.btn.wa{background:#1f7a4d}
+.btn:focus-visible,.opt:focus-visible,.back:focus-visible{outline:2px solid var(--antique);outline-offset:2px}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin-top:16px;font-size:12px;color:rgba(255,255,255,.8);text-align:center}
+.trust b{color:var(--gold);font-weight:600}
+
+/* ---------- seçim slaytı ---------- */
+.slide{position:fixed;inset:0;z-index:20;display:none;align-items:flex-end;justify-content:center;overflow:hidden;cursor:pointer;background:var(--ink)}
+.slide.on{display:flex}
+.slide .img{position:absolute;inset:0;background-size:cover;background-position:center;animation:kb 3s ease-out forwards}
+@keyframes kb{from{transform:scale(1.18);filter:brightness(.6)}to{transform:scale(1.02);filter:brightness(1)}}
+.slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(36,37,32,0) 35%,rgba(36,37,32,.88))}
+.slide .txt{position:relative;z-index:3;text-align:center;color:#fff;padding:0 24px 13vh;max-width:640px}
+.slide .chip{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(227,207,164,.5);border-radius:999px;padding:6px 14px;margin-bottom:14px;opacity:0;animation:up .6s .35s var(--ease) both}
+.slide h3{font-family:var(--serif);font-weight:500;font-size:clamp(34px,8vw,58px);line-height:1.05;opacity:0;animation:up .7s .55s var(--ease) both}
+.slide p{margin-top:12px;font-size:16px;opacity:0;animation:up .7s .8s var(--ease) both;color:rgba(255,255,255,.9)}
+.slide .line{position:absolute;left:0;bottom:0;height:3px;z-index:3;background:var(--gold);width:0}
+.slide.on .line{animation:grow var(--dur,2600ms) linear forwards}
+@keyframes grow{to{width:100%}}
+.slide .fly{position:absolute;z-index:2;width:110px;height:130px;top:18%;left:-140px;animation:fly var(--dur,2600ms) ease-in-out forwards}
+@keyframes fly{0%{left:-140px;transform:translateY(20px) rotate(-6deg)}50%{transform:translateY(-30px) rotate(4deg)}100%{left:calc(100% + 40px);transform:translateY(10px) rotate(-4deg)}}
+.slide .skip{position:absolute;z-index:3;top:18px;right:18px;font-size:12px;color:rgba(255,255,255,.75)}
+.spark{position:absolute;z-index:2;width:8px;height:8px;pointer-events:none}
+.spark::before,.spark::after{content:"";position:absolute;inset:0;background:var(--gold);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.spark{animation:sparkle 1.1s ease-out forwards}
+@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:1}60%{opacity:1}100%{transform:scale(1.6) rotate(90deg) translateY(30px);opacity:0}}
+
+/* ---------- yükleniyor ---------- */
+.loading{position:fixed;inset:0;z-index:30;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#3a3a32,var(--ink));color:#fff;text-align:center;padding:24px}
+.loading.on{display:flex;animation:fadeIn .4s ease both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.orbit{position:relative;width:200px;height:200px;margin-bottom:28px}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(227,207,164,.45);animation:spin 8s linear infinite}
+.orbit .ring.r2{inset:22px;border-style:solid;border-color:rgba(227,207,164,.18);animation-duration:5s;animation-direction:reverse}
+.orbit .dot{position:absolute;top:-5px;left:calc(50% - 5px);width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px 4px rgba(227,207,164,.7)}
+.orbit .fairy{position:absolute;inset:40px;width:120px;height:120px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading h3{font-family:var(--serif);font-weight:500;font-size:30px;min-height:1.3em}
+.loading h3 span{display:inline-block;animation:up .5s var(--ease) both}
+.loading .lbar{width:220px;height:3px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:20px;overflow:hidden}
+.loading .lbar i{display:block;height:100%;width:0;background:var(--gold);animation:grow 3.4s ease-in-out forwards}
+
+/* ---------- teşekkür ---------- */
+.collage{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 16px}
+.collage div{aspect-ratio:3/4;border-radius:14px;background-size:cover;background-position:center;opacity:0;animation:up .6s var(--ease) both}
+.collage div:nth-child(2){animation-delay:.15s;transform:translateY(-6px)}.collage div:nth-child(3){animation-delay:.3s}
+.summary{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;font-weight:600}
+.burst{position:fixed;inset:0;z-index:40;pointer-events:none}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .slide .fly,.dust{display:none}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCFJTWCL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Peri maskot (tek tanım, her yerde <use> ile) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6dc" stop-opacity=".9"/><stop offset="1" stop-color="#e3cfa4" stop-opacity="0"/></radialGradient>
+    <linearGradient id="dress" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#ead9b3"/></linearGradient>
+    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#e3cfa4" stop-opacity=".55"/></linearGradient>
+  </defs>
+  <symbol id="peri" viewBox="0 0 120 140">
+    <g class="float">
+      <circle cx="60" cy="70" r="46" fill="url(#glow)"/>
+      <g class="wingL"><path d="M54 52 C30 22 8 34 14 54 C18 68 40 66 54 56Z" fill="url(#wing)" stroke="#c9a96a" stroke-width="1.2"/><path d="M54 58 C36 66 22 82 32 90 C42 96 52 76 55 62Z" fill="url(#wing)" stroke="#c9a96a" stroke-width="1.2"/></g>
+      <g class="wingR"><path d="M66 52 C90 22 112 34 106 54 C102 68 80 66 66 56Z" fill="url(#wing)" stroke="#c9a96a" stroke-width="1.2"/><path d="M66 58 C84 66 98 82 88 90 C78 96 68 76 65 62Z" fill="url(#wing)" stroke="#c9a96a" stroke-width="1.2"/></g>
+      <path d="M60 54 L80 112 Q60 120 40 112Z" fill="url(#dress)" stroke="#c9a96a" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M44 104 Q60 112 76 104" fill="none" stroke="#c9a96a" stroke-width="1.2"/>
+      <circle cx="60" cy="74" r="2" fill="#c9a96a"/><circle cx="60" cy="84" r="1.6" fill="#c9a96a"/>
+      <path d="M52 112 L50 124 M68 112 L70 124" stroke="#e8c9ad" stroke-width="3" stroke-linecap="round"/>
+      <path d="M70 66 Q84 56 98 38" stroke="#e8c9ad" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <line x1="96" y1="40" x2="101" y2="34" stroke="#7a5c2e" stroke-width="2" stroke-linecap="round"/>
+      <path class="star" d="M101 26 L103.2 31.8 L109 34 L103.2 36.2 L101 42 L98.8 36.2 L93 34 L98.8 31.8Z" fill="#e3cfa4" stroke="#c9a96a" stroke-width=".8"/>
+      <path d="M50 66 Q42 74 40 80" stroke="#e8c9ad" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="60" cy="40" r="15" fill="#f6dcc6"/>
+      <path d="M45 40 C44 24 76 22 75 40 C76 32 66 27 60 30 C54 27 46 32 45 40Z" fill="#5b3f2a"/>
+      <circle cx="60" cy="22" r="6.5" fill="#5b3f2a"/>
+      <path d="M52 27 L55 21 L58 26 L60 19 L62 26 L65 21 L68 27" fill="none" stroke="#c9a96a" stroke-width="1.6" stroke-linejoin="round"/>
+      <circle cx="54.5" cy="41" r="1.8" fill="#3a2a1d"/><circle cx="65.5" cy="41" r="1.8" fill="#3a2a1d"/>
+      <circle cx="51" cy="46" r="2.6" fill="#f2a9a0" opacity=".55"/><circle cx="69" cy="46" r="2.6" fill="#f2a9a0" opacity=".55"/>
+      <path d="M56.5 47 Q60 50.5 63.5 47" stroke="#a5604f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="bg" id="bg"><div></div><div></div></div>
+<div class="dust" id="dust"></div>
+
+<main class="wrap">
+  <img class="logo" src="https://www.hanedanpark.com/images/logo.png" alt="Hanedan Park">
+  <form class="card" id="quiz" novalidate>
+    <div class="guide">
+      <svg class="fairy" aria-hidden="true"><use href="#peri"/></svg>
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+    </div>
+
+    <div class="top" id="top" hidden>
+      <button type="button" class="back" id="back" aria-label="Geri">&#8592;</button>
+      <div class="bar"><i id="barFill"></i></div>
+      <span class="count" id="count"></span>
+    </div>
+
+    <!-- Giriş -->
+    <section class="step" data-step="giris">
+      <h1>Hayalinizdeki düğünü <em>birlikte</em> canlandıralım</h1>
+      <p class="hint">3 kısa soruyu yanıtlayın, Hanedan Park ekibi tarihinize ve davetli sayınıza göre size özel teklif hazırlasın.</p>
+      <button type="button" class="btn" id="start">Başlayalım</button>
+    </section>
+
+    <!-- Soru adımları JS ile doldurulur -->
+    <section class="step" data-step="donem"></section>
+    <section class="step" data-step="davetli"></section>
+    <section class="step" data-step="butce"></section>
+
+    <!-- İletişim -->
+    <section class="step" data-step="iletisim">
+      <h2>Teklifinizi kime iletelim?</h2>
+      <p class="hint">Ekibimiz sizi arayıp seçenekleri birlikte konuşsun.</p>
+      <div class="field">
+        <label for="ad">Ad soyad</label>
+        <input id="ad" type="text" autocomplete="name" maxlength="80">
+        <div class="err" data-for="ad"></div>
+      </div>
+      <div class="field">
+        <label for="telefon">Telefon</label>
+        <input id="telefon" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx" maxlength="20">
+        <div class="err" data-for="telefon"></div>
+      </div>
+      <div class="field">
+        <label for="eposta">E-posta <span>(isteğe bağlı)</span></label>
+        <input id="eposta" type="email" autocomplete="email" maxlength="120">
+        <div class="err" data-for="eposta"></div>
+      </div>
+      <div class="field">
+        <label for="tarih">Aklınızda belirli bir tarih var mı? <span>(isteğe bağlı)</span></label>
+        <input id="tarih" type="text" maxlength="80" placeholder="Örn. 12 Haziran 2027">
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="kvkk">
+        <span>Bilgilerimin teklif ve iletişim amacıyla işlenmesini kabul ediyorum. <a href="#" target="_blank" rel="noopener" id="kvkkLink">KVKK Aydınlatma Metni</a></span>
+      </label>
+      <div class="err" data-for="kvkk"></div>
+      <button type="submit" class="btn">Teklifimi Hazırla</button>
+    </section>
+
+    <!-- Teşekkür -->
+    <section class="step" data-step="tesekkur">
+      <h2>Teşekkürler, bilgileriniz bize ulaştı</h2>
+      <p class="hint">Ekibimiz en kısa sürede sizi arayacak. Hemen konuşmak isterseniz WhatsApp'tan yazabilirsiniz.</p>
+      <div class="collage" id="collage"><div></div><div></div><div></div></div>
+      <dl class="summary" id="summary"></dl>
+      <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+    </section>
+  </form>
+  <div class="trust"><span><b>Konyaaltı</b> · bahçe düğünü</span><span><b>Paket</b> · menü, pasta, fotoğraf dahil</span><span><b>Organizasyon şefi</b> · akış baştan sona bizde</span></div>
+</main>
+
+<!-- Seçim slaytı -->
+<div class="slide" id="slide" role="status" aria-live="polite">
+  <div class="img" id="slideImg"></div>
+  <svg class="fly" aria-hidden="true"><use href="#peri"/></svg>
+  <div class="txt"><span class="chip" id="slideChip"></span><h3 id="slideTitle"></h3><p id="slideText"></p></div>
+  <span class="skip">Geçmek için dokunun</span>
+  <div class="line"></div>
+</div>
+
+<!-- Yükleniyor -->
+<div class="loading" id="loading" role="status" aria-live="polite">
+  <div class="orbit"><div class="ring"><span class="dot"></span></div><div class="ring r2"></div><svg class="fairy" aria-hidden="true"><use href="#peri"/></svg></div>
+  <h3 id="loadText"></h3>
+  <div class="lbar"><i></i></div>
+</div>
+<div class="burst" id="burst"></div>
+
+<script>
+(function(){
+  /* ---- AYARLAR (entegrasyonda doldurulacak) ---- */
+  var CONFIG = {
+    LEAD_ENDPOINT: "",                 // POST JSON alacak adres (Next.js API route / Apps Script). Boşsa sadece dataLayer + WhatsApp.
+    WHATSAPP: "905308332995",
+    KVKK_URL: "",                      // sitede KVKK sayfası açılınca
+    IMG: "https://www.hanedanpark.com/images/gallery/DSC",
+    SLIDE_MS: 2600
+  };
+  var img = function(n){ return CONFIG.IMG + n + ".webp"; };
+
+  /* ---- Sorular: her şık kendi slaytını getirir ---- */
+  var Q = {
+    donem: {
+      q: "Düğününüzü hangi dönemde düşünüyorsunuz?", hint: "Kesin tarihiniz yoksa yaklaşık dönemi seçmeniz yeterli.",
+      peri: "Önce tarihi konuşalım. Hangi mevsim size daha yakın?", bg: "08227", chip: "Dönem",
+      opts: [
+        { v: "2027 İlkbahar", s: "Mart – Mayıs", img: "08227", t: "İlkbaharda bahçe düğünü", c: "Yeşilin en canlı olduğu aylarda, gün ışığında bir tören." },
+        { v: "2027 Yaz", s: "Haziran – Ağustos", img: "08535", t: "Gün batımında başlayan gece", c: "Yaz akşamları ağaçların arasından süzülen son ışıklarla." },
+        { v: "2027 Sonbahar", s: "Eylül – Kasım", img: "08442", t: "Sonbaharın sıcak renkleri", c: "Serin akşamlarda, bahçede şık bir kutlama." },
+        { v: "2028 ve sonrası", s: "Erken planlayanlar için", img: "08240", t: "Erken planlayanlara", c: "Tarihinizi şimdiden konuşmaya başlayalım." },
+        { v: "Henüz belli değil", s: "Birlikte karar verelim", img: "09770", t: "Tarihi birlikte seçelim", c: "Uygun dönemleri ekibimiz sizinle paylaşsın." }
+      ]
+    },
+    davetli: {
+      q: "Davetli sayınız kaç olacak?", hint: "Yaklaşık bir sayı yeterli, sonradan değişebilir.",
+      peri: "Ne güzel bir seçim! Peki kaç kişi olacaksınız?", bg: "09793", chip: "Davetli sayısı",
+      opts: [
+        { v: "100'den az", s: "Samimi bir davet", img: "08325", t: "Samimi bir davet", c: "Az ama özel misafir, her masada ayrı bir incelik." },
+        { v: "100 – 200", s: "Sevdiklerinizle", img: "09793", t: "Sevdiklerinizle bir arada", c: "Masa düzeni davetli sayınıza göre kurulur." },
+        { v: "200 – 350", s: "Bahçe boyunca masalar", img: "08310", t: "Bahçe boyunca masalar", c: "Yerleşim planını davetli sayınıza göre birlikte çıkaralım." },
+        { v: "350 – 500", s: "Büyük bir kutlama", img: "08312", t: "Büyük ve şık bir kutlama", c: "Gecenin akışını organizasyon şefimiz baştan sona yönetir." },
+        { v: "500'den fazla", s: "Kalabalık bir düğün", img: "06061", t: "Kalabalık bir düğün", c: "Mekân yerleşimini ekibimizle birlikte planlayalım." }
+      ]
+    },
+    butce: {
+      q: "Düğün için ayırdığınız toplam bütçe aralığı nedir?", hint: "Size en uygun paketi önermemize yardımcı olur.",
+      peri: "Son soru! Bütçe aralığınız nedir?", bg: "08303", chip: "Bütçe",
+      opts: [
+        { v: "250 bin TL'den az", s: "", img: "06084", t: "Her detay özenle", c: "Size uygun paket seçeneğini birlikte bulalım." },
+        { v: "250 – 500 bin TL", s: "", img: "09847", t: "Menü pakette", c: "Tavuk veya et menü, ordövr ve yaş pasta paket içinde." },
+        { v: "500 bin – 1 milyon TL", s: "", img: "08303", t: "Gelin-damat masanız", c: "Mum ışığı ve beyaz çiçeklerle hazırlanan bir sahne." },
+        { v: "1 milyon TL'den fazla", s: "", img: "08363", t: "Konsepti siz seçin", c: "Masa süslemesinden aydınlatmaya seçenekleri birlikte belirleyelim." },
+        { v: "Teklife göre karar vereceğim", s: "", img: "09863", t: "Kemanla karşılama", c: "Keman ve çello eşliğinde misafir karşılama pakette." }
+      ]
+    }
+  };
+  var ORDER = ["giris", "donem", "davetli", "butce", "iletisim", "tesekkur"];
+  var PERI = {
+    giris: "Merhaba! Ben Hanedan Park'ın perisiyim. 3 soruda hayalinizdeki düğünü birlikte canlandıralım.",
+    iletisim: "Teklifiniz neredeyse hazır! Kime gönderelim?",
+    tesekkur: "Dileklerinizi aldım! Ekibimiz sizi en kısa sürede arayacak."
+  };
+  var BG = { giris: "slider", iletisim: "08236", tesekkur: "08268" };
+
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $("quiz"), steps = {}, data = {}, cur = "giris", busy = false;
+  [].forEach.call(form.querySelectorAll(".step"), function(s){ steps[s.dataset.step] = s; });
+  window.dataLayer = window.dataLayer || [];
+  if (CONFIG.KVKK_URL) $("kvkkLink").href = CONFIG.KVKK_URL;
+
+  // reklam kaynağı (gclid/UTM) — lead ile birlikte gönderilir
+  var qs = new URLSearchParams(location.search), src = {};
+  ["gclid","gbraid","wbraid","fbclid","utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(function(k){ if (qs.get(k)) src[k] = qs.get(k); });
+
+  // görselleri önden yükle
+  var urls = [img("08236"), img("08268")];
+  Object.keys(Q).forEach(function(k){ urls.push(img(Q[k].bg)); Q[k].opts.forEach(function(o){ urls.push(img(o.img)); }); });
+  urls.forEach(function(u){ var i = new Image(); i.src = u; });
+
+  // arka plan çapraz geçiş
+  var layers = $("bg").children, layer = 0;
+  function setBg(key){
+    var u = key === "slider" ? "https://www.hanedanpark.com/images/slider.webp" : img(key);
+    var next = layers[1 - layer];
+    next.style.backgroundImage = "url(" + u + ")";
+    next.classList.add("on"); layers[layer].classList.remove("on"); layer = 1 - layer;
+  }
+
+  // uçuşan ışıltılar
+  for (var d = 0; d < 18; d++) {
+    var p = document.createElement("i");
+    p.style.left = Math.random() * 100 + "%";
+    p.style.animationDuration = 8 + Math.random() * 10 + "s";
+    p.style.animationDelay = -Math.random() * 15 + "s";
+    p.style.transform = "scale(" + (0.5 + Math.random()) + ")";
+    $("dust").appendChild(p);
+  }
+
+  function say(t){ var b = $("bubble"); b.textContent = t; b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }
+
+  // soru adımlarını oluştur
+  Object.keys(Q).forEach(function(k){
+    var q = Q[k], s = steps[k];
+    s.innerHTML = '<h2></h2><p class="hint"></p><div class="opts"></div>';
+    s.querySelector("h2").textContent = q.q;
+    s.querySelector(".hint").textContent = q.hint;
+    var box = s.querySelector(".opts");
+    q.opts.forEach(function(o, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "opt"; b.style.animationDelay = (0.15 + i * 0.07) + "s";
+      b.innerHTML = '<span class="th"></span><span><b></b><small></small></span><span class="tick"></span>';
+      b.querySelector(".th").style.backgroundImage = "url(" + img(o.img) + ")";
+      b.querySelector("b").textContent = o.v;
+      if (o.s) b.querySelector("small").textContent = o.s; else b.querySelector("small").remove();
+      b.addEventListener("click", function(e){ choose(k, o, b, e); });
+      box.appendChild(b);
+    });
+  });
+
+  function show(key){
+    cur = key;
+    Object.keys(steps).forEach(function(k){ steps[k].classList.toggle("on", k === key); });
+    var qi = ["donem", "davetli", "butce", "iletisim"].indexOf(key);
+    $("top").hidden = key === "giris";
+    $("back").classList.toggle("show", qi > 0);
+    $("barFill").style.width = key === "tesekkur" ? "100%" : (Math.max(qi, 0) / 4 * 100) + "%";
+    $("count").textContent = key === "tesekkur" ? "Tamamlandı" : (qi >= 0 ? (qi + 1) + " / 4" : "");
+    say(Q[key] ? Q[key].peri : PERI[key]);
+    setBg(Q[key] ? Q[key].bg : BG[key]);
+    if (qi >= 0) window.dataLayer.push({ event: "quiz_step", quiz_step: qi + 1, quiz_step_name: key });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function sparkles(host, n, x, y){
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement("span"); s.className = "spark";
+      s.style.left = (x != null ? x : Math.random() * 100) + (x != null ? "px" : "%");
+      s.style.top = (y != null ? y : Math.random() * 100) + (y != null ? "px" : "%");
+      if (x != null) { s.style.left = x + (Math.random() - .5) * 160 + "px"; s.style.top = y + (Math.random() - .5) * 160 + "px"; }
+      s.style.animationDelay = Math.random() * 0.8 + "s";
+      s.style.transform = "scale(" + (0.6 + Math.random()) + ")";
+      host.appendChild(s);
+      setTimeout(function(el){ el.remove(); }, 2200, s);
+    }
+  }
+
+  function choose(k, o, btn, e){
+    if (busy) return; busy = true;
+    data[k] = o.v;
+    [].forEach.call(btn.parentNode.children, function(x){ x.classList.toggle("sel", x === btn); });
+    var r = btn.getBoundingClientRect(), rp = document.createElement("span");
+    rp.className = "ripple"; rp.style.width = rp.style.height = r.width / 2 + "px";
+    rp.style.left = (e.clientX - r.left - r.width / 4) + "px"; rp.style.top = (e.clientY - r.top - r.width / 4) + "px";
+    btn.appendChild(rp); setTimeout(function(){ rp.remove(); }, 650);
+    setTimeout(function(){ playSlide(Q[k].chip, o, function(){ busy = false; show(ORDER[ORDER.indexOf(k) + 1]); }); }, 280);
+  }
+
+  // seçime özel kısa sunum
+  var slideTimer, slideDone;
+  function playSlide(chip, o, done){
+    var sl = $("slide");
+    $("slideImg").style.backgroundImage = "url(" + img(o.img) + ")";
+    $("slideChip").textContent = chip + " · " + o.v;
+    $("slideTitle").textContent = o.t;
+    $("slideText").textContent = o.c;
+    sl.style.setProperty("--dur", CONFIG.SLIDE_MS + "ms");
+    // animasyonları yeniden başlat
+    sl.classList.remove("on"); [].forEach.call(sl.querySelectorAll("*"), function(el){ el.style.animation = "none"; void el.offsetWidth; el.style.animation = ""; });
+    sl.classList.add("on");
+    sparkles(sl, 14);
+    slideDone = function(){ clearTimeout(slideTimer); sl.classList.remove("on"); slideDone = null; done(); };
+    slideTimer = setTimeout(slideDone, CONFIG.SLIDE_MS);
+  }
+  $("slide").addEventListener("click", function(){ if (slideDone) slideDone(); });
+
+  $("start").addEventListener("click", function(){ show("donem"); });
+  $("back").addEventListener("click", function(){ var i = ORDER.indexOf(cur); if (i > 1) show(ORDER[i - 1]); });
+
+  function normPhone(v){
+    var x = v.replace(/\D/g, "");
+    if (x.indexOf("90") === 0 && x.length === 12) x = x.slice(2);
+    if (x.charAt(0) === "0" && x.length === 11) x = x.slice(1);
+    return /^5\d{9}$/.test(x) ? "+90" + x : null;
+  }
+  function setErr(id, msg){
+    form.querySelector('.err[data-for="' + id + '"]').textContent = msg || "";
+    var inp = $(id); if (inp.type !== "checkbox") inp.setAttribute("aria-invalid", msg ? "true" : "false");
+    return !msg;
+  }
+  function validateContact(){
+    var ad = $("ad").value.trim(), tel = normPhone($("telefon").value), ep = $("eposta").value.trim();
+    var ok = setErr("ad", ad.length < 3 ? "Lütfen adınızı ve soyadınızı yazın." : "");
+    ok = setErr("telefon", tel ? "" : "Lütfen geçerli bir cep telefonu girin (05xx xxx xx xx).") && ok;
+    ok = setErr("eposta", ep && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ep) ? "E-posta adresini kontrol edin." : "") && ok;
+    ok = setErr("kvkk", $("kvkk").checked ? "" : "Devam etmek için onay kutusunu işaretleyin.") && ok;
+    if (ok) { data.ad = ad; data.telefon = tel; data.eposta = ep; data.tarih = $("tarih").value.trim(); }
+    return ok;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (cur !== "iletisim" || !validateContact()) return;
+    var lead = Object.assign({ kaynak: "quiz", sayfa: location.href, zaman: new Date().toISOString() }, data, src);
+
+    // GTM: Google Ads dönüşümü + Meta Lead + gelişmiş dönüşüm verisi
+    window.dataLayer.push({
+      event: "generate_lead",
+      lead_donem: data.donem, lead_davetli: data.davetli, lead_butce: data.butce,
+      user_data: { phone_number: data.telefon, email: data.eposta || undefined }
+    });
+    if (CONFIG.LEAD_ENDPOINT) {
+      fetch(CONFIG.LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead), keepalive: true })
+        .catch(function(){ /* WhatsApp butonu yedek kanal */ });
+    }
+    loadingThenThanks();
+  });
+
+  function loadingThenThanks(){
+    var L = $("loading"), lines = ["Tarihinize bakıyoruz…", "Davetinizi planlıyoruz…", "Teklifinizi hazırlıyoruz…"];
+    L.classList.add("on");
+    lines.forEach(function(t, i){
+      setTimeout(function(){ $("loadText").innerHTML = ""; var s = document.createElement("span"); s.textContent = t; $("loadText").appendChild(s); }, i * 1150);
+    });
+    setTimeout(function(){
+      fillThanks();
+      L.classList.remove("on");
+      show("tesekkur");
+      history.replaceState(null, "", location.pathname + location.search + "#tesekkurler");
+      sparkles($("burst"), 40, innerWidth / 2, innerHeight / 3);
+    }, 3500);
+  }
+
+  function fillThanks(){
+    var pick = [Q.donem, Q.davetli, Q.butce].map(function(q, i){
+      var key = ["donem", "davetli", "butce"][i];
+      return q.opts.filter(function(o){ return o.v === data[key]; })[0];
+    });
+    [].forEach.call($("collage").children, function(el, i){ el.style.backgroundImage = "url(" + img(pick[i].img) + ")"; });
+    var rows = [["Dönem", data.donem + (data.tarih ? " · " + data.tarih : "")], ["Davetli", data.davetli], ["Bütçe", data.butce], ["Telefon", data.telefon]];
+    var dl = $("summary"); dl.innerHTML = "";
+    rows.forEach(function(r){
+      var dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = r[0]; dd.textContent = r[1]; dl.appendChild(dt); dl.appendChild(dd);
+    });
+    var msg = "Merhaba, Hanedan Park'tan düğün teklifi almak istiyorum.\n" + rows.map(function(r){ return r[0] + ": " + r[1]; }).join("\n") + "\nAd: " + data.ad;
+    $("wa").href = "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(msg);
+  }
+
+  show("giris");
+})();
+</script>
+</body>
+</html>
